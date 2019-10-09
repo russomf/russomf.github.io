@@ -20,6 +20,16 @@
     <body>
         <h2>Graphic Object Transformations</h2>
         <hr/>
+    <h3>Contents</h3>
+    <p>
+        <ul>
+            <li><a href="#Introduction">Introduction</a></li>
+            <li><a href="#Translate">Translate</a></li>
+            <li><a href="#Scale">Scale</a></li>
+            <li><a href="#Rotate">Rotate</a></li>
+        </ul>
+    </p>
+    <h3><a name="Introduction"></a>Introduction</h3>
     <p>
         As described in <a href="position_size.html">Graphic Object Position and Size</a>, each Shape object can be moved and sized and using methods
         such as <a href="http://doodlepad.org/dist/javadoc/doodlepad/Shape.html#setLocation-double-double-" target="_blank">setLocation(...)</a>
@@ -50,7 +60,7 @@
         In spite of the fact that both Rectangles have identical dimensions and location,
         they are drawn at different parts of the Pad due to the fact that the green Rectangle's coordinate system was translated away from its default value.
     </p>
-    <h3>Translate</h3>
+    <h3><a name="Translate"></a>Translate</h3>
     <img src="images/transformations2.png" style="float:right;padding:10px;">
     <p>
         As suggested by the terminology used in the previous example,
@@ -98,13 +108,13 @@ public class Transform1 {
         Use the Shape's <a href="http://doodlepad.org/dist/javadoc/doodlepad/Shape.html#reset--" target="_blank">reset()</a>
         method to set all transformations back to their default values.
     </p>
-    <h3>Scale</h3>
+    <h3><a name="Scale"></a>Scale</h3>
     <p>
         The second transformation method is
         <a href="http://doodlepad.org/dist/javadoc/doodlepad/Shape.html#scale-double-double-" target="_blank">scale(...)</a>.
 
     </p>
-    <h3>Rotate</h3>
+    <h3><a name="Rotate"></a>Rotate</h3>
     <p>...</p>
     </body>
 </html>
