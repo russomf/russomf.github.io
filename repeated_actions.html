@@ -23,10 +23,65 @@
     <h3>Contents</h3>
     <p>
         <ul>
-            <li><a href="#Introduction">Introduction</a></li>
-        </ul>
+                <li><a href="#Introduction">Introduction</a></li>
+                <li><a href="#Methods">Timer Methods</a></li>
+                <li><a href="#Example1">Example: Animating Shape Motion</a></li>
+            </ul>
     </p>
     <h3><a name="Introduction"></a>Introduction</h3>
+    <p>
+        One way to perform animations or other graphic illustrations requiring repeated sequential execution of code 
+        is to make use of a timer. Smilar to its hardware counterpart, a software timer may be started and stopped,
+        set to run at a presepecified tick rate, and take some action at one or more timepoints in the future.
+        In DoodlePad the <a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html" target="_blank">Pad</a> class 
+        provides the functionality of a timer, which may be used to run repeated actions. 
+    </p>
+    <h3><a name="Methods"></a>Timer Methods</h3>
+    <p>
+        The Pad's timer functionality is encapsulated in five methods:
+        <table>
+            <tr><th>Method Signature</th><th>Description</th></tr>
+            <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#setTickRate-double-" target="_blank">
+                public final void setTickRate(double tps)
+            </a></td>
+            <td>
+                Set the rate at which the Pad's internal timer fires. 
+                The single method argument is the tick rate, provided in the units ticks-per-second.
+                The default tick rate value is 60.
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#getTickRate--" target="_blank">
+                public final double getTickRate()
+            </a></td>
+            <td>
+                Return the current tick rate value in ticks-per-second that has been set for a Pad object's internal timer.
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#setTickHandler-doodlepad.Pad.PadTimerEventHandler-" target="_blank">
+                public void setTickHandler(Pad.PadTimerEventHandler handler)
+            </a></td>
+            <td>
+                Provide a method reference for a method to be executed when a Pad timer ticks, the tick event handler.
+                The method signature for the handler must match the signature <code>void handler(Pad pad, long when)</code>.
+            </td>
+        </tr>
+        <tr><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#startTimer--" target="_blank">
+                public void startTimer()
+            </a></td>
+            <td>
+                Start a Pad's timer ticking. The timer will invoke the associated tick event handler at its preset tick rate.
+            </td>
+        </tr>
+        <tr><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#stopTimer--" target="_blank">
+                public void stopTimer()
+            </a></td>
+            <td>
+                Stop a Pad's timer ticking.
+            </td>
+        </tr>
+        </table>
+    </p>
+    <h3><a name="Example1"></a>Example: Animating Shape Motion</h3>
     <p>
         ...
     </p>
