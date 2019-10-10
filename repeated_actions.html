@@ -38,7 +38,7 @@
     </p>
     <h3><a name="Methods"></a>Timer Methods</h3>
     <p>
-        The Pad's timer functionality is encapsulated in five methods:
+        The Pad's timer functionality is encapsulated by five methods:
         <table>
             <tr><th>Method Signature</th><th>Description</th></tr>
             <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#setTickRate-double-" target="_blank">
@@ -83,7 +83,80 @@
     </p>
     <h3><a name="Example1"></a>Example: Animating Shape Motion</h3>
     <p>
-        ...
+        The following example demonstrates the use of a timer in DoodlePad. 
+        In this example a small green "bug" (an Oval object) continually seek the mouse location.
+        Moving the mouse on the Pad causes the bug to change direction.
     </p>
+    <p>
+        The program's <code>main()</code> method starts by creating and styling new Pad and Oval objects.
+        The Pad's mouseMoved event is handled by a method that updates target coordinates.
+        These target coordinates are continuously being sought by the bug.
+        The Pad timer's tick rate is set to 30 ticks-per-second, and its tick event handler is set to a method named <code>moveBug()</code>.
+        Before exiting <code>main()</code> the Pad timer is started.
+    </p>
+    <p>
+        The <code>moveBug()</code> method is the Pad timer's event handler. It is fired approximately 30 times per second by the timer.
+        Each time it is fired, it computes a new location that is about 10% of the way between its current location and the target location,
+        and it moves the bug to the new location. Because it does not move the bug all the way to the target location,
+        the bug continuously changes direction as the mouse moves.
+        The result is a fun program to play with, and the basis for more interesting games and animated illustrations.
+    </p>
+    <p>
+        Finally, note that a Shape's location is not the only thing that may be animated. Any object property may change.
+        For example, a Shapes' fill or stroke color may be animated, as can its width, height or other properties.
+        The only limit is your imagination.
+    </p>
+<pre><code class="java">import doodlepad.*;
+
+// Seeker.java
+// Continually move a green bug to follow a moving mouse
+import doodlepad.*;
+
+public class Seeker {
+
+    // The mouse-seeking bug Shape
+    private static Oval bug;
+
+    // The coordinates being sought by the bug
+    private static double targetX, targetY;
+
+    public static void main(String[] args) {
+        // Create a new Pad object
+        Pad pad = new Pad("Mouse Seeker", 400, 400);
+
+        // Create the green bug Shape that seeks the mouse
+        bug = new Oval(0, 0, 10, 10);
+        bug.setFillColor(0, 255, 0);
+
+        // Handle the Pad mouseMoved event
+        pad.setMouseMovedHandler( Seeker::onMouseMoved );
+
+        // Set up and start the Pad timer
+        pad.setTickRate(30);
+        pad.setTickHandler( Seeker::moveBug );
+        pad.startTimer();
+    }
+
+    // Set a new target location for the bug every time the mouse is moved
+    public static void onMouseMoved(Pad pad, double x, double y, int button) {
+        targetX = x;
+        targetY = y;
+    }
+
+    // Move the bug part-way toward the target mouse location
+    public static void moveBug(Pad pad, long when) {
+        // Get the current bug location
+        double currX = bug.getX();
+        double currY = bug.getY();
+        // Compute a new location closer to the mouse
+        double newX  = currX + 0.1*(targetX - currX);
+        double newY  = currY + 0.1*(targetY - currY);
+        // Update the bug location
+        bug.setX( newX );
+        bug.setY( newY );
+    }
+}
+</code></pre>
+
     </body>
 </html>
