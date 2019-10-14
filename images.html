@@ -72,6 +72,23 @@
             </td>
         </tr>
     </table>
+    <img src="images/Image1.jpg" style="float:right;padding:10px;width:250px;height:250px;">
+    <p>
+        The following simple example demonstrates how to create a new Image object using the constructor that
+        loads and displays an image upon creation. The screenshot on the right shows the result of the Image1.java program.
+    </p>
+
+    <pre><code class="java">// Image1.java
+import doodlepad.*;
+
+public class Image1 {
+    public static void main(String[] args) {
+        Pad pad = new Pad("Naruto Selfie", 355, 355);
+        Image im = new Image("naruto-selfie.png", 0, 0);
+    }
+}
+    </code></pre>
+
     <h3><a name="Methods"></a>Image Methods</h3>
     <p>
         The Image object implements several methods for modifying its pixels, whether that be one pixel at at time,
@@ -215,15 +232,98 @@
         </tr>
     </table>    
     <h3><a name="SimpleExample"></a>A Simple Example</h3>
+    <img src="images/Image2.jpg" style="float:right;padding:10px;">
     <p>
-        ...
+        The following example program demonstrates the use of Image object methods that draw on the Image.
+        In this example 200 lines are drawn. Each line has random endpoint coordinates, random width, 
+        and random stroke color.
     </p>
+
+    <pre><code class="java">// Image2.java
+import java.util.Random;
+import doodlepad.*;
+
+public class Image2 {
+    public static void main(String[] args) {
+        double x1, x2, y1, y2, w;
+        int r, g, b;
+
+        // Create a Pad object, an Image object for the Pad,
+        // and a Random object for generating random numbers.
+        Pad pad    = new Pad(400, 400);
+        Image im   = new Image(0, 0, 400, 400);
+        Random rnd = new Random();
+        
+        for (int i=0; i<100; i++) {
+            // Random numbers
+            y1 = 400*rnd.nextDouble();
+            x1 = 200*rnd.nextDouble();
+            x2 = 200+200*rnd.nextDouble();
+            w  = 10*rnd.nextDouble();
+            r  = rnd.nextInt(256);
+            g  = rnd.nextInt(256);
+            b  = rnd.nextInt(256);
+            
+            // Draw line on Image
+            im.setStrokeColor(r,g,b);
+            im.setStrokeWidth(w);
+            im.drawLine(x1,y1,x2,y1);
+            
+            // More random numbers
+            x1 = 400*rnd.nextDouble();
+            y1 = 200*rnd.nextDouble();
+            y2 = 200+200*rnd.nextDouble();
+            w  = 10*rnd.nextDouble();
+            r  = rnd.nextInt(256);
+            g  = rnd.nextInt(256);
+            b  = rnd.nextInt(256);
+            
+            // Draw line on Image
+            im.setStrokeColor(r,g,b);
+            im.setStrokeWidth(w);
+            im.drawLine(x1,y1,x1,y2);
+        }
+    }
+}</code></pre>
+
     <h3><a name="ImageAsShape"></a>An Image as a Shape</h3>
+    <img src="images/Image3.jpg" style="float:right;padding:10px;">
     <p>
         Because Image is a subclass of <a href="https://doodlepad.org/dist/javadoc/doodlepad/Shape.html" target="_blank">Shape</a>
         it inherits all of the Shape methods. For example, Image responds to all the standard mouse events, so you may interact with an Image
-        using the mouse and respond to those interactions with event handler methods. For a more complete program that uses this technique
+        using the mouse and respond to those interactions with event handler methods. 
+        The following example draws a randomly-sized green oval whereever the mouse is pressed.
+        For a more complete program that uses this technique
         refer to the <a href="https://doodlepad.org/interactive_drawing.html" target="_blank">Interactive Drawing</a> example. 
     </p>
+
+    <pre><code class="java">// Image3.java
+import doodlepad.*;
+
+public class Image3 {
+
+    public static void main(String[] args) {
+        // Create Pad and Image
+        Pad pad  = new Pad(400, 400);
+        Image im = new Image(0, 0, 400, 400);
+        
+        // Set up mouse event handler
+        im.setMousePressedHandler( Image3::onSpot );
+        
+        // Set drawing fill color to green
+        im.setFillColor(0,200,0);
+    }
+    
+    // What to do when mouse is pressed on Image
+    public static void onSpot(Shape shp, double cx, double cy, int button) {
+        // Cast Shape to Image
+        Image im = (Image)shp;
+        
+        // Draw randomly sized oval
+        double radius = Math.random()*40;
+        im.drawOval(cx-radius, cy-radius, 2*radius, 2*radius);
+    }
+}</code></pre>
+
     </body>
 </html>
