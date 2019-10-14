@@ -41,8 +41,14 @@
     </p>
     <h3><a name="Constructors"></a>Image Constructors</h3>
     <p>
-        Images may be constructed blank, or they may load and display an image from a file upon creation.
-        This behavior is governed by the constructor used to create an Image. Following are several Image constructors.
+        Images may be constructed blank, or upon construction they may load and display an image from a file.
+        This behavior is governed by the constructor used to create an Image. Following are three Image object constructors.
+        The first constructor creates an blank Image with the givel location (xm y) and dimensions (width, height).
+        The second constructor creates an Image object and loads an image from a file, given a path to it on the file system.
+        The dimensions of the Image are set to match the dimensions of the image loaded from the file.
+        The third constructor creats an Image object of the given dimensions, and also loads and resizes the
+        image stored in the given file path prior to displaying it. For all Image constructors, refer to the 
+        <a hred="https://doodlepad.org/dist/javadoc/doodlepad/Image.html" target="_blank">docs</a>.
     </p>
     <table>
         <tr><th>Constructor Signature</th><th>Description</th></tr>
@@ -75,7 +81,11 @@
     <img src="images/Image1.jpg" style="float:right;padding:10px;width:250px;height:250px;">
     <p>
         The following simple example demonstrates how to create a new Image object using the constructor that
-        loads and displays an image upon creation. The screenshot on the right shows the result of the Image1.java program.
+        loads and displays an image upon construction. The screenshot on the right shows the result of the Image1.java program.
+        While strictly not required, in this example an instance of the Pad object is created first to set the size of the 
+        initial window and to give it a title. The image is a selfie taken by the wild Indonesian macaque named Naturo who
+        was the subject of a well-known 
+        <a href="https://en.wikipedia.org/wiki/Monkey_selfie_copyright_dispute" target="_blank">copyright dispute</a>.
     </p>
 
     <pre><code class="java">// Image1.java
@@ -202,10 +212,10 @@ public class Image1 {
         </tr>
     </table>
     <p>
-        You will note that none of the previous methods determine the fill color, stroke color, or stroke width to be used when
-        drawing on an Image. To set the fill and stroke properties of a drawing, set these values using the following Image object
-        methods before invoking one the previous drawing methods. These settings will be used for all subsequent drawing on an Image
-        object, or at least until a new setting is specified.
+        You will note that none of the previous methods set the fill color, stroke color, or stroke width to be used when
+        drawing on an Image. To set the fill and stroke properties of drawn lines and shapes, set these values using the Image object's
+        methods prior to invoking one its drawing methods. Once set, these settings are used for all subsequent drawing performed
+        on an Image object, until new settings are specified.
     </p>
     <table>
         <tr><th>Method Signature</th><th>Description</th></tr>
@@ -234,9 +244,9 @@ public class Image1 {
     <h3><a name="SimpleExample"></a>A Simple Example</h3>
     <img src="images/Image2.jpg" style="float:right;padding:10px;width:300px;height:300px;">
     <p>
-        The following example program demonstrates the use of Image object methods that draw on the Image.
-        In this example 200 lines are drawn. Each line has random endpoint coordinates, random width, 
-        and random stroke color.
+        The following example program demonstrates the use of Image object methods used to draw on the Image.
+        In this example 200 lines are drawn on the Image object using a for statement. 
+        Each line is drawn after setting random endpoint coordinates, random width, and random stroke color. 
     </p>
 
     <pre><code class="java">// Image2.java
@@ -290,10 +300,10 @@ public class Image2 {
     <img src="images/Image3.jpg" style="float:right;padding:10px;width:300px;height:300px;">
     <p>
         Because Image is a subclass of <a href="https://doodlepad.org/dist/javadoc/doodlepad/Shape.html" target="_blank">Shape</a>
-        it inherits all of the Shape methods. For example, Image responds to all the standard mouse events, so you may interact with an Image
-        using the mouse and respond to those interactions with event handler methods. 
-        The following example draws a randomly-sized green oval whereever the mouse is pressed.
-        For a more complete program that uses this technique
+        it inherits all of the Shape methods. For example, you may resize and move an Image as well as respond to all the 
+        standard mouse events. This gives you the ability to programmatically draw on the Image in response to interacting with it
+        using the mouse. The following example draws a randomly-sized green oval where the mouse is pressed.
+        For a more complete program that uses this technique to create a drawing program using DoodlePad, 
         refer to the <a href="https://doodlepad.org/interactive_drawing.html" target="_blank">Interactive Drawing</a> example. 
     </p>
 
