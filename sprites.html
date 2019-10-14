@@ -24,11 +24,36 @@
     <p>
         <ul>
             <li><a href="#Introduction">Introduction</a></li>
+            <li><a href="#FlyingBird">Animated Flying Bird Sprite</a></li>
         </ul>
     </p>
     <h3><a name="Introduction"></a>Introduction</h3>
     <p>
         ...
     </p>
+
+    <h3><a name="FlyingBird"></a>Animated Flying Bird Sprite</h3>
+    <p>
+        ...
+        <img src="images/FlyingBird.png" style="padding:10px;transform: scale(0.7);">
+    </p>
+
+    <img src="images/FlyingBird.gif" style="float:right;padding:10px;">
+    <pre><code class="java">// FlyingBird.java
+import doodlepad.*;
+
+public class FlyingBird {
+
+    public static void main(String[] args) {
+        // Create a Pad and a Sprite
+        Pad pad = new Pad(300, 300);
+        Sprite sprite = new Sprite("FlyingBird.png", 50, 50, 190, 5);
+        
+        // Set Pad timer with a Java lambda function that advances sprite
+        pad.setTickHandler( (Pad p, long when) -> { sprite.advance(); } );
+        pad.setTickRate(10);
+        pad.startTimer();
+    }
+}</code></pre>
     </body>
 </html>
