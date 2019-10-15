@@ -24,23 +24,67 @@
     <p>
         <ul>
             <li><a href="#Introduction">Introduction</a></li>
-            <li><a href="#FlyingBird">Animated Flying Bird Sprite</a></li>
+            <li><a href="#Constructors">Sprite Constructors</a></li>
+            <li><a href="#Methods">Sprite Methods</a></li>
+            <li><a href="#FlyingBird">Flying Bird Example</a></li>
         </ul>
     </p>
     <h3><a name="Introduction"></a>Introduction</h3>
     <p>
-        A core element of many computer games and animated display is an object called a 
-        <a href="https://en.wikipedia.org/wiki/Sprite_(computer_graphics)" target="_blank">Sprite.</a> 
-        The frames of a Sprite's animation are stored in a single image. 
+        A core element of many classic computer games and other computer displays are
+        animated characters or other objects called 
+        <a href="https://en.wikipedia.org/wiki/Sprite_(computer_graphics)" target="_blank">sprites.</a> 
+        Sprites appear animated by displaying in a single place the sequential static frames of an animation loop, 
+        as you might see with an animated cartoon or 
+        <a href="https://en.wikipedia.org/wiki/Flip_book" target="_blank">flip book</a>.
+        Typical sprite animation loops show characters running, jumping, rotating, or other repetitive activities. 
     </p>
+    <p>
+        The frames of a modern sprite animation are stored together in a single image called a <i>sprite sheet</i>.
+        A sprite display engine copies successive frames from the sprite sheet image and displays them in sequence
+        at a given rate to create the sprite animation. The following image is a sprite sheet that may be used by the
+        DoodlePad <a href="https://doodlepad.org/dist/javadoc/doodlepad/Sprite.html" target="_blank">Sprite</a> class. 
+        All five frames of the sprite animation stored in the following sprite sheet, where each frame is separated
+        at a horizontal interval of 190 pixels.
+    </p>
+    <img src="images/FlyingBird.png" style="padding:10px;">
 
-    <h3><a name="FlyingBird"></a>Animated Flying Bird Sprite</h3>
+    <h3><a name="Constructors"></a>Sprite Constructors</h3>
     <p>
         ...
-        <img src="images/FlyingBird.png" style="padding:10px;transform: scale(0.7);">
+    </p>
+    <table>
+        <tr><th>Constructor Signature</th><th>Description</th></tr>
+        <tr><td><a href="" target="_blank">
+            ...
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+    </table>    
+
+    <h3><a name="Methods"></a>Image Methods</h3>
+    <p>
+        ...
+    </p>
+    <table>
+        <tr><th>Method Signature</th><th>Description</th></tr>
+        <tr><td><a href="" target="_blank">
+            ...
+            </a></td>
+            <td>
+                ...
+            </td>
+        </tr>
+    </table>
+
+    <h3><a name="FlyingBird"></a>Flying Bird Example</h3>
+    <img src="images/FlyingBird.gif" style="float:right;padding:10px;">
+    <p>
+        The following example program creates a flying bird Sprite object that makes use of the sprite sheet above...
     </p>
 
-    <img src="images/FlyingBird.gif" style="float:right;padding:10px;">
     <pre><code class="java">// FlyingBird.java
 import doodlepad.*;
 
