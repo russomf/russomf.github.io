@@ -51,30 +51,51 @@
 
     <h3><a name="Constructors"></a>Sprite Constructors</h3>
     <p>
-        ...
+        To operate properly, Sprite objects need several items. They must load their sprite sheet images
+        and have the parameters necessary for copying frames from the sprite sheet including frame width 
+        and the number of frames stored on the sprite sheet image. In addition, the coordinates for where 
+        the frames should be drawn must also be known, and optionally the dimensions of the frames. 
+        The following Sprite constructors are two of the most common and include the necessary parameters.
     </p>
     <table>
         <tr><th>Constructor Signature</th><th>Description</th></tr>
-        <tr><td><a href="" target="_blank">
-            ...
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Sprite.html#Sprite-java.lang.String-double-double-int-int-" target="_blank">
+            Sprite(java.lang.String path, double x, double y, int frameWidth, int nFrames)
             </a></td>
             <td>
-            ...
+            Construct a new Sprite specifying a path to the sprite sheet image,
+            the (x, y) coordinates indicating where to render the sprite, 
+            the width of a single frame, and the number of frames on the sprite sheet organized horizontally.
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Sprite.html#Sprite-java.lang.String-double-double-double-int-int-int-" target="_blank">
+            Sprite(java.lang.String path, double x, double y, double frameWidth, int nFrames, int targetWidth, int targetHeight)
+            </a></td>
+            <td>
+            Construct a new Sprite specifying a path to the sprite sheet image,
+            the (x, y) coordinates indicating where to render the sprite, 
+            the width of a single frame, the number of frames on the sprite sheet organized horizontally,
+            and the target dimensions for the sprite when frames are rendered.
             </td>
         </tr>
     </table>    
 
     <h3><a name="Methods"></a>Image Methods</h3>
     <p>
-        ...
+        As a subclass of <a href="https://doodlepad.org/dist/javadoc/doodlepad/Shape.html" target="_blank">Shape</a>, 
+        Sprite objects inherit all the standard Shape methods.
+        The primary additional method unique to the Sprite class is advance(). This is the method
+        that instructs a Sprite object to move to the next frame in its animation sequence.
+        The next frame image from the sprite sheet is copied and drawn at the Sprite location,
+        possibly resizing to fit within target dimensions.
     </p>
     <table>
         <tr><th>Method Signature</th><th>Description</th></tr>
-        <tr><td><a href="" target="_blank">
-            ...
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Sprite.html#advance--" target="_blank">
+            public void advance()
             </a></td>
             <td>
-                ...
+            Advance the sprite frame and repaint the new frame image.
             </td>
         </tr>
     </table>
@@ -82,7 +103,10 @@
     <h3><a name="FlyingBird"></a>Flying Bird Example</h3>
     <img src="images/FlyingBird.gif" style="float:right;padding:10px;">
     <p>
-        The following example program creates a flying bird Sprite object that makes use of the sprite sheet above...
+        The following example program creates a flying bird Sprite object that makes use of the sprite sheet given above.
+        On the right is an animated image showing the flying bird Sprite in action.
+        The Pad object's timer functionality is used to drive the Sprite animation by invoking its
+        <span class="code">advance()</span> method.
     </p>
 
     <pre><code class="java">// FlyingBird.java
