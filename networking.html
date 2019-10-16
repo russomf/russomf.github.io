@@ -25,6 +25,7 @@
         <ul>
             <li><a href="#Introduction">Introduction</a></li>
             <li><a href="#Methods">Methods</a></li>
+            <li><a href="#OverridableMethods">Overridable Methods</a></li>
         </ul>
     </p>
 
@@ -39,8 +40,156 @@
     </p>
     <table>
         <tr><th>Method Signature</th><th>Description</th></tr>
-        <tr><td><a href="" target="_blank">
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#getIPv4Addresses--" target="_blank">
+            public java.util.List<java.lang.String> getIPv4Addresses()
+            </a></td>
+            <td>
             ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#getIPv6Addresses--" target="_blank">
+            public java.util.List<java.lang.String> getIPv6Addresses()
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#openConnection-java.lang.String-int-" target="_blank">
+            public int openConnection(java.lang.String host, int port)
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#getConnectionIds--" target="_blank">
+            public java.util.Set<java.lang.Integer> getConnectionIds()
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#connectionExists-int-" target="_blank">
+            public boolean connectionExists(int id)
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#send-int-java.lang.String-" target="_blank">
+            public void send(int id, java.lang.String msg)
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#broadcast-java.lang.String-" target="_blank">
+            public void broadcast(java.lang.String msg)
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#closeConnection-int-" target="_blank">
+            public void closeConnection(int id)
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#closeAllConnections--" target="_blank">
+            public void closeAllConnections()
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#startListening-int-" target="_blank">
+            public void startListening(int port)
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#stopListening--" target="_blank">
+            public void stopListening()
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#getNumConnections--" target="_blank">
+            public int getNumConnections()
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+    </table>
+    <h3><a name="OverridableMethods"></a>Overridable Methods</h3>
+    <p>
+        ...
+    </p>
+    <table>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#onClientOpened-int-" target="_blank">
+            public void onClientOpened(int id)
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#onClientClosed-int-" target="_blank">
+            public void onClientClosed(int id)
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#onClientReceived-int-java.lang.String-" target="_blank">
+            public void onClientReceived(int id, java.lang.String msg)
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#onClientInfo-int-java.lang.String-" target="_blank">
+            public void onClientInfo(int id, java.lang.String msg)
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#onClientError-int-java.lang.String-" target="_blank">
+            public void onClientError(int id, java.lang.String msg)
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#onServerStarted--" target="_blank">
+            public void onServerStarted()
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#onServerStopped--" target="_blank">
+            public void onServerStopped()
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#onServerInfo-java.lang.String-" target="_blank">
+            public void onServerInfo(java.lang.String msg)
+            </a></td>
+            <td>
+            ...
+            </td>
+        </tr>
+        <tr><td><a href="https://doodlepad.org/dist/javadoc/doodlepad/Pad.html#onServerError-java.lang.String-" target="_blank">
+            public void onServerError(java.lang.String msg)
             </a></td>
             <td>
             ...
